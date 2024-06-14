@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Notepad++ Website</title>
+    <style>
+        body {
+            font-family: "Courier New", Courier, monospace;
+            background-color: #FFFFFF;
+            color: #2E2E2E;
+            padding: 20px;
+            margin: 0;
+        }
+        h1 {
+            color: #FF0000;
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #CCC;
+            border-radius: 5px;
+        }
+        .button {
+            background-color: #FF0000;
+            color: #FFFFFF;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            display: block;
+            text-align: center;
+            margin: 20px auto;
+            width: 150px;
+        }
+        .button:hover {
+            background-color: #FF6347;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Checkout</h1>
+        <form>
+            <div class="form-group">
+                <label for="fullname">Full Name</label>
+                <input type="text" id="fullname" name="fullname" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="address">Address</label>
+                <input type="text" id="address" name="address" required>
+            </div>
+            <div class="form-group">
+                <label for="city">City</label>
+                <input type="text" id="city" name="city" required>
+            </div>
+            <div class="form-group">
+                <label for="state">State</label>
+                <input type="text" id="state" name="state" required>
+            </div>
+            <div class="form-group">
+                <label for="zip">Zip Code</label>
+                <input type="text" id="zip" name="zip" required>
+            </div>
+            <div class="form-group">
+                <label for="country">Country</label>
+                <select id="country" name="country" required>
+                    <option value="USA">USA</option>
+                    <option value="Canada">Canada</option>
+                    <option value="UK">UK</option>
+                    <option value="Australia">Australia</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="payment">Payment Method</label>
+                <select id="payment" name="payment" required>
+                    <option value="credit">Credit Card</option>
+                    <option value="debit">Debit Card</option>
+                    <option value="paypal">PayPal</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="cardname">Name on Card</label>
+                <input type="text" id="cardname" name="cardname" required>
+            </div>
+            <div class="form-group">
+                <label for="cardnumber">Card Number</label>
+                <input type="text" id="cardnumber" name="cardnumber" required>
+            </div>
+            <div class="form-group">
+                <label for="expdate">Expiration Date</label>
+                <input type="text" id="expdate" name="expdate" placeholder="MM/YY" required>
+            </div>
+            <div class="form-group">
+                <label for="cvv">CVV</label>
+                <input type="text" id="cvv" name="cvv" required>
+            </div>
+            <button type="submit" class="button">Place Order</button>
+			<a href="index.html" class="button">Home</a>
+        </form>
+    </div>
+</body>
+</html>

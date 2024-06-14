@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notepad++ Website</title>
+    <style>
+        /* Notepad++ Theme CSS */
+        body {
+            font-family: "Courier New", Courier, monospace;
+            background-color: #FFFFFF; /* White background */
+            color: #2E2E2E; /* Dark text */
+            padding: 20px;
+            margin: 0;
+        }
+        h1 {
+            text-align: center; /* Center the main heading */
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            position: relative;
+        }
+        .logo {
+            text-align: center;
+            margin-bottom: 20px; /* Spacing between logo and buttons */
+        }
+        .menu-icon {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            cursor: pointer;
+        }
+        .menu-icon .bar {
+            width: 30px;
+            height: 5px;
+            background-color: #2E2E2E;
+            margin: 6px 0;
+            transition: 0.4s;
+        }
+        .change .bar:nth-child(1) {
+            transform: rotate(-45deg) translate(-9px, 6px);
+        }
+        .change .bar:nth-child(2) {
+            opacity: 0;
+        }
+        .change .bar:nth-child(3) {
+            transform: rotate(45deg) translate(-8px, -8px);
+        }
+        .dropdown {
+            position: absolute;
+            top: 60px;
+            right: 20px;
+            background-color: #FFFFFF;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            display: none;
+        }
+        .dropdown a {
+            display: block;
+            color: #2E2E2E;
+            padding: 12px 16px;
+            text-decoration: none;
+        }
+        .dropdown a:hover {
+            background-color: #FF6347;
+            color: #FFFFFF;
+        }
+        .show-dropdown {
+            display: block;
+        }
+        .product-section {
+            margin-top: 20px;
+            overflow-x: auto; /* Enable horizontal scrolling */
+            white-space: nowrap; /* Prevent products from wrapping */
+        }
+        .product {
+            display: inline-block;
+            vertical-align: top;
+            margin-right: 20px;
+            width: 250px; /* Set a fixed width for each product */
+            background-color: #FFC0CB; /* Light pink background for products */
+            padding: 20px;
+            border-radius: 5px;
+        }
+        .product img {
+            display: block;
+            margin: 0 auto 10px; /* Center image and add margin below */
+            max-width: 100%;
+            height: auto;
+            max-height: 150px; /* Set maximum height for the images */
+        }
+    </style>
+    <script>
+        function toggleDropdown() {
+            var dropdown = document.getElementById("dropdownMenu");
+            dropdown.classList.toggle("show-dropdown");
+        }
+
+        function addToCart(productName, price) {
+            const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+            const newItem = { name: productName, price: price };
+            cartItems.push(newItem);
+            localStorage.setItem('cartItems', JSON.stringify(cartItems));
+            alert("Added " + productName + " to cart. Price: R" + price.toFixed(2));
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <img src="PNA-Logo-01-300x268.png" alt="Logo" width="200">
+        </div>
+        <div class="menu-icon" onclick="toggleDropdown()">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+        <div class="dropdown" id="dropdownMenu">
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+            <a href="cart.html">View Cart</a>
+            <a href="checkout.html">Checkout</a>
+        </div>
+        
+        <!-- Stationery Section -->
+        <div class="product-section">
+            <h2>Stationery</h2>
+            <div class="product">
+                <img src="Pencil.jpg" alt="Pencil">
+                <h3>Pencil</h3>
+                <p>R 15</p>
+                <button class="button" onclick="addToCart('Pencil', 15.00)">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="Pen.jpg" alt="Pen">
+                <h3>Pen</h3>
+                <p>R 23</p>
+                <button class="button" onclick="addToCart('Pen', 23.00)">Add to Cart</button>
+            </div>
+			<div class="product">
+                <img src="Eraser.jpg" alt="Eraser">
+                <h3>Eraser</h3>
+                <p>R 100</p>
+                <button class="button" onclick="addToCart('Eraser', 100.00)">Add to Cart</button>
+            </div>
+			<div class="product">
+                <img src="Ruler.jpg" alt="Ruler">
+                <h3>Ruler</h3>
+                <p>R 95</p>
+                <button class="button" onclick="addToCart('Ruler', 95.00)">Add to Cart</button>
+            </div>
+			<div class="product">
+                <img src="sticky_note.jpg" alt="Sticky Notes">
+                <h3>Sticky Notes</h3>
+                <p>R 40</p>
+                <button class="button" onclick="addToCart('Sticky Notes', 40.00)">Add to Cart</button>
+            </div>
+            <!-- Add more products -->
+        </div>
+
+        <!-- Pencil Cases Section -->
+        <div class="product-section">
+            <h2>Pencil Cases</h2>
+            <div class="product">
+                <img src="small_pencil_case.jpg" alt="Small Pencil Case">
+                <h3>Small Pencil Case</h3>
+                <p>R 50</p>
+                <button class="button" onclick="addToCart('Small Pencil Case', 50.00)">Add to Cart</button>
+            </div>
+			<div class="product">
+                <img src="large_pencil_case.jpg" alt="Large Pencil Case">
+                <h3>Large Pencil Case</h3>
+                <p>R 100</p>
+                <button class="button" onclick="addToCart('Large Pencil Case', 100.00)">Add to Cart</button>
+            </div>
+			<div class="product">
+                <img src="plastic_pencil.jpg" alt="Plastic Pencil Case">
+                <h3>Plastic Pencil Case</h3>
+                <p>R 120</p>
+                <button class="button" onclick="addToCart('Plastic Pencil Case', 120.00)">Add to Cart</button>
+            </div>
+            <!-- Add more products -->
+        </div>
+
+        <!-- Schoolbags Section -->
+        <div class="product-section">
+            <h2>Schoolbags</h2>
+            <div class="product">
+                <img src="Schoolbag.jpg" alt="Schoolbag">
+                <h3>Schoolbag</h3>
+                <p>R 200</p>
+                <button class="button" onclick="addToCart('Schoolbag', 200.00)">Add to Cart</button>
+            </div>
+            <!-- Add more products -->
+        </div>
+    </div>
+</body>
+</html>
